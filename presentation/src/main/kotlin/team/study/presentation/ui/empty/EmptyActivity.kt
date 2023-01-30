@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
-import team.study.presentation.theme.Theme
+import team.study.presentation.theme.MagentaTheme
 
 @AndroidEntryPoint
 class EmptyActivity : ComponentActivity() {
@@ -20,7 +20,7 @@ class EmptyActivity : ComponentActivity() {
         super.onCreate(savedInstanceState, persistentState)
 
         setContent {
-            Theme {
+            MagentaTheme {
                 Column(modifier = Modifier.fillMaxWidth()) {
                     Hello(modifier = Modifier)
                 }
