@@ -15,3 +15,7 @@
   - [HOTFIX] : Hotfix 배포용
   - [VERSION] : App 버전 변경 시 사용
   - [CHORE] : 기타 파일 추가 등 위의 상황에 해당되지 않는 경우
+
+### 폰트, 테마
+ - Font : [Pretendard](https://cactus.tistory.com/306)
+ - Theme : [Magenta](https://material3-themes-manual.amoebelabs.com/examples/material3-example-theme-d04-magenta/#example)
