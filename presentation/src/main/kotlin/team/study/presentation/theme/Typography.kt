@@ -20,7 +20,7 @@ private val Pretendard = FontFamily(
     Font(R.font.pretendard_thin, FontWeight.Thin)
 )
 
-val Typography = Typography(
+val PretendardTypography = Typography(
     displayLarge = TextStyle(
         fontFamily = Pretendard,
         fontWeight = FontWeight.Black,

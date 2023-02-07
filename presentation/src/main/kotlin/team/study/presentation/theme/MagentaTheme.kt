@@ -69,8 +69,7 @@ fun MagentaTheme(
 
     MaterialTheme(
         colorScheme = colors,
-        typography = Typography,
-        shapes = Shapes,
+        typography = PretendardTypography,
         content = content
     )
 }

@@ -12,7 +12,6 @@ object Versions {
         const val Core = "1.8.0"
         const val LifeCycle = "2.4.1"
         const val ViewModel = "2.4.1"
-        const val Navigation = "2.5.0"
     }
 
     object Ui {
@@ -22,6 +21,8 @@ object Versions {
         const val Compose = "1.3.2"
         const val ActivityCompose = "1.6.1"
         const val Foundation = "1.3.1"
+        const val Navigation = "2.5.0"
+        const val ComposeHiltNavigation = "1.0.0"
     }
 
     object Util {

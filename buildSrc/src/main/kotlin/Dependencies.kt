@@ -11,10 +11,8 @@ object Dependencies {
 
     val Ktx = listOf(
         "androidx.core:core-ktx:${Versions.Ktx.Core}",
-        "androidx.navigation:navigation-ui-ktx:${Versions.Ktx.Navigation}",
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Ktx.LifeCycle}",
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Ktx.ViewModel}",
-        "androidx.navigation:navigation-common-ktx:${Versions.Ktx.Navigation}"
     )
 
     val Ui = listOf(
@@ -28,9 +26,12 @@ object Dependencies {
         "androidx.compose.animation:animation:${Versions.Ui.Compose}",
         "androidx.compose.foundation:foundation:${Versions.Ui.Foundation}",
         "androidx.activity:activity-compose:${Versions.Ui.ActivityCompose}",
+        "androidx.compose.material:material:${Versions.Ui.Material}",
         "androidx.compose.material:material-icons-extended:${Versions.Ui.Material}",
         "androidx.compose.material3:material3:${Versions.Ui.Material3}",
-        "androidx.compose.material3:material3-window-size-class:${Versions.Ui.Material3}"
+        "androidx.compose.material3:material3-window-size-class:${Versions.Ui.Material3}",
+        "androidx.navigation:navigation-compose:${Versions.Ui.Navigation}",
+        "androidx.hilt:hilt-navigation-compose:${Versions.Ui.ComposeHiltNavigation}"
     )
 
     val Util = listOf(
