@@ -36,23 +36,23 @@ import team.study.presentation.ui.navermovie.navigation.NaverMovieDestination
 fun NaverMovieTabRow(
     allScreens: List<NaverMovieDestination>,
     onTabSelected: (NaverMovieDestination) -> Unit,
-    currentScreen: NaverMovieDestination
+    currentScreen: NaverMovieDestination,
 ) {
     Surface(
         Modifier
             .height(NavigationHeight)
             .fillMaxWidth(),
-        color = MaterialTheme.colorScheme.secondaryContainer
+        color = MaterialTheme.colorScheme.surface,
     ) {
         Row(
-            modifier = Modifier.selectableGroup()
+            modifier = Modifier.selectableGroup(),
         ) {
             allScreens.forEach { screen ->
                 RowTab(
                     text = stringResource(id = screen.title),
                     icon = screen.icon,
                     onSelected = { onTabSelected(screen) },
-                    selected = currentScreen == screen
+                    selected = currentScreen == screen,
                 )
             }
         }
@@ -64,7 +64,7 @@ private fun RowTab(
     text: String,
     icon: ImageVector,
     onSelected: () -> Unit,
-    selected: Boolean
+    selected: Boolean,
 ) {
     val color = MaterialTheme.colorScheme.primary
     val durationMillis = if (selected) TabFadeInAnimationDuration else TabFadeOutAnimationDuration
@@ -72,12 +72,12 @@ private fun RowTab(
         tween<Color>(
             durationMillis = durationMillis,
             easing = LinearEasing,
-            delayMillis = TabFadeInAnimationDelay
+            delayMillis = TabFadeInAnimationDelay,
         )
     }
-    val bottomTintColor by animateColorAsState(
+    val tintColor by animateColorAsState(
         targetValue = if (selected) color else color.copy(alpha = InactiveTabOpacity),
-        animationSpec = animSpec
+        animationSpec = animSpec,
     )
     Row(
         modifier = Modifier
@@ -92,22 +92,19 @@ private fun RowTab(
                 indication = rememberRipple(
                     bounded = false,
                     radius = Dp.Unspecified,
-                    color = Color.Unspecified
-                )
+                    color = Color.Unspecified,
+                ),
             )
-            .clearAndSetSemantics { contentDescription = text }
+            .clearAndSetSemantics { contentDescription = text },
     ) {
-        Icon(imageVector = icon, contentDescription = text, tint = bottomTintColor)
+        Icon(imageVector = icon, contentDescription = text, tint = tintColor)
         if (selected) {
             Spacer(modifier = Modifier.width(12.dp))
-            Text(text = text, color = bottomTintColor)
+            Text(text = text, color = tintColor)
         }
     }
 }
 
-/**
- * Height of a [BottomNavigation] component
- */
 private val NavigationHeight = 56.dp
 private const val InactiveTabOpacity = 0.60f
 
