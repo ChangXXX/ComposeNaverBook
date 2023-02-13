@@ -1,17 +1,19 @@
 plugins {
-    id("com.android.application") version "7.3.1" apply false
-    id("com.android.library") version "7.3.1" apply false
-    kotlin("android") version "1.5.31" apply false
-    kotlin("kapt") version "1.7.20" apply false
-    id("com.google.dagger.hilt.android") version Versions.Jetpack.Hilt apply false
-    id("name.remal.check-dependency-updates") version Versions.Util.CheckDependencyUpdates
-    id("org.jetbrains.kotlin.jvm") version "1.7.20" apply false
+    kotlin(Plugins.KotlinSerialization) version Versions.Kotlin.Kotlin apply false
+    kotlin(Plugins.KotlinAndroid) version Versions.Kotlin.KotlinAndroid apply false
+    kotlin(Plugins.KotlinKapt) version Versions.Kotlin.Kapt apply false
+    kotlin(Plugins.KotlinJvm) version Versions.Kotlin.Kotlin apply false
+    id(Plugins.AndroidApplication) version Versions.ThirdParty.AndroidGradle apply false
+    id(Plugins.AndroidLibrary) version Versions.ThirdParty.AndroidGradle apply false
+    id(Plugins.DaggerHilt) version Versions.ThirdParty.Dagger apply false
+    id(Plugins.SecretsGradlePlugin) version Versions.ThirdParty.SecretsGradle apply false
 }
 
 buildscript {
+
     dependencies {
-        classpath("com.android.tools.build:gradle:7.2.0")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Essential.Kotlin}")
+        classpath("${Plugins.AndroidGradlePlugin}:${Versions.ThirdParty.AndroidGradle}")
+        classpath("${Plugins.KotlinGradlePlugin}:${Versions.Kotlin.Kotlin}")
     }
 }
 

@@ -7,7 +7,7 @@ object Application {
     const val jvmTarget = "1.8"
     const val versionCode = 1
     const val versionName = "1.0.0"
-    const val composeCompilerVersion = "1.3.2"
+    const val composeCompilerVersion = "1.4.0"
     const val buildGradleVersion = "30.0.3"
 
     val targetCompat = JavaVersion.VERSION_1_8

@@ -1,57 +1,122 @@
 object Dependencies {
-    const val FirebaseBom = "com.google.firebase:firebase-bom:${Versions.FirebaseBom}"
 
-    val Firebase = listOf(
-        "com.google.firebase:firebase-firestore-ktx"
-    )
+    object Kotlin {
 
-    val Essential = listOf(
-        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Essential.Coroutines}"
-    )
+        object Coroutines {
+            const val Core =
+                "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.Coroutines}"
+            const val Android =
+                "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.Coroutines}"
 
-    val Ktx = listOf(
-        "androidx.core:core-ktx:${Versions.Ktx.Core}",
-        "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Ktx.LifeCycle}",
-        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Ktx.ViewModel}",
-    )
+            val Bundle = listOf(
+                Coroutines.Core,
+                Coroutines.Android
+            )
+            const val Test =
+                "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.Coroutines}"
+        }
 
-    val Ui = listOf(
-        "androidx.appcompat:appcompat:${Versions.Ui.AppCompat}"
-    )
+        const val Serialization =
+            "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Kotlin.KotlinSerializationJson}"
+    }
 
-    val Compose = listOf(
-        "androidx.compose.ui:ui:${Versions.Ui.Compose}",
-        "androidx.compose.ui:ui-tooling:${Versions.Ui.Compose}",
-        "androidx.compose.runtime:runtime:${Versions.Ui.Compose}",
-        "androidx.compose.animation:animation:${Versions.Ui.Compose}",
-        "androidx.compose.foundation:foundation:${Versions.Ui.Foundation}",
-        "androidx.activity:activity-compose:${Versions.Ui.ActivityCompose}",
-        "androidx.compose.material:material:${Versions.Ui.Material}",
-        "androidx.compose.material:material-icons-extended:${Versions.Ui.Material}",
-        "androidx.compose.material3:material3:${Versions.Ui.Material3}",
-        "androidx.compose.material3:material3-window-size-class:${Versions.Ui.Material3}",
-        "androidx.navigation:navigation-compose:${Versions.Ui.Navigation}",
-        "androidx.hilt:hilt-navigation-compose:${Versions.Ui.ComposeHiltNavigation}"
-    )
+    object AndroidX {
 
-    val Util = listOf(
-        "com.kakao.sdk:v2-user:${Versions.Kakao}",
-        "com.github.bumptech.glide:compose:${Versions.Util.Glide}"
-    )
+        const val CoreKtx = "androidx.core:core-ktx:${Versions.AndroidX.Core}"
+        const val Appcompat = "androidx.appcompat:appcompat:${Versions.AndroidX.Appcompat}"
 
-    val Jetpack = listOf(
-        "androidx.room:room-ktx:${Versions.Jetpack.Room}",
-        "com.google.dagger:hilt-android:${Versions.Jetpack.Hilt}"
-    )
+        object Activity {
+            const val Ktx = "androidx.activity:activity-ktx:${Versions.AndroidX.Activity}"
+            const val Compose = "androidx.activity:activity-compose:${Versions.AndroidX.Activity}"
 
-    val Compiler = listOf(
-        "androidx.room:room-compiler:${Versions.Jetpack.Room}",
-//        "com.github.bumptech.glide:compiler:${Versions.Util.Glide}",
-        "com.google.dagger:hilt-android-compiler:${Versions.Jetpack.Hilt}",
-        "androidx.compose.compiler:compiler:${Versions.Ui.Compose}"
-    )
+            val Bundle = listOf(
+                Activity.Ktx,
+                Activity.Compose
+            )
+        }
 
-    val Debug = listOf(
-        "com.squareup.leakcanary:leakcanary-android:${Versions.Util.LeakCanary}"
-    )
+        object Compose {
+
+            const val Bom = "androidx.compose:compose-bom:${Versions.AndroidX.Compose.ComposeBom}"
+
+            const val HiltComposeNavigation =
+                "androidx.hilt:hilt-navigation-compose:${Versions.AndroidX.ComposeHiltNavigation}"
+            const val NavigationCompose =
+                "androidx.navigation:navigation-compose:${Versions.AndroidX.Navigation}"
+
+            val Bundle = listOf(
+                "androidx.compose.ui:ui",
+                "androidx.compose.ui:ui-tooling-preview",
+                "androidx.activity:activity-compose",
+                "androidx.compose.animation:animation",
+                "androidx.compose.foundation:foundation",
+                "androidx.compose.runtime:runtime",
+                "androidx.compose.runtime:runtime-livedata",
+                "androidx.compose.material:material-icons-core",
+                "androidx.compose.material:material-icons-extended",
+                "androidx.compose.material3:material3",
+                "androidx.compose.material3:material3-window-size-class",
+            )
+
+            val Debug = listOf(
+                "androidx.compose.ui:ui-tooling",
+                //"androidx.compose.ui:ui-test-manifest"
+            )
+        }
+
+        object Room {
+            const val Runtime = "androidx.room:room-runtime:${Versions.AndroidX.Room}"
+            const val Compiler = "androidx.room:room-compiler:${Versions.AndroidX.Room}"
+            const val Ktx = "androidx.room:room-ktx:${Versions.AndroidX.Room}"
+
+            val Bundle = listOf(
+                Room.Runtime,
+                Room.Ktx
+            )
+        }
+
+        object Lifecycle {
+            const val ViewModel =
+                "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.AndroidX.Lifecycle}"
+            const val ViewModelCompose =
+                "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.Lifecycle}"
+            const val RuntimeTesting =
+                "androidx.lifecycle:lifecycle-runtime-testing:${Versions.AndroidX.Lifecycle}"
+
+            val Bundle = listOf(
+                Lifecycle.ViewModel,
+                Lifecycle.ViewModelCompose
+            )
+
+            val Test = listOf(
+                Lifecycle.RuntimeTesting
+            )
+        }
+    }
+
+    object ThirdParty {
+
+        const val Ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.ThirdParty.Ksp}"
+
+        object Coil {
+            const val Core = "io.coil-kt:coil:${Versions.ThirdParty.Coil}"
+            const val Compose = "io.coil-kt:coil-compose:${Versions.ThirdParty.Coil}"
+
+            val Bundle = listOf(
+                Coil.Core,
+                Coil.Compose
+            )
+        }
+
+        object Dagger {
+            const val HiltAndroid = "com.google.dagger:hilt-android:${Versions.ThirdParty.Dagger}"
+            const val HiltCompiler =
+                "com.google.dagger:hilt-android-compiler:${Versions.ThirdParty.Dagger}"
+        }
+
+        const val Timber = "com.jakewharton.timber:timber:${Versions.ThirdParty.Timber}"
+
+        const val LeakCanary =
+            "com.squareup.leakcanary:leakcanary-android:${Versions.ThirdParty.LeakCanary}"
+    }
 }

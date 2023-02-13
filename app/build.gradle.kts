@@ -1,8 +1,8 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
-    id("dagger.hilt.android.plugin")
+    id(Plugins.AndroidApplication)
+    kotlin(Plugins.KotlinAndroid)
+    kotlin(Plugins.KotlinKapt)
+    id(Plugins.HiltPlugin)
 }
 
 android {
@@ -39,7 +39,11 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Application.composeCompilerVersion
+        kotlinCompilerExtensionVersion = Versions.AndroidX.Compose.Compiler
+    }
+
+    kapt {
+        correctErrorTypes = true
     }
 
     kotlinOptions {
@@ -51,13 +55,10 @@ dependencies {
 
     implementation(project(":presentation"))
     implementation(project(":domain"))
+    implementation(project(":data"))
 
-    Dependencies.Compose.forEach(::implementation)
-    Dependencies.Compiler.forEach(::kapt)
-    Dependencies.Jetpack.forEach(::implementation)
-}
-
-kapt {
-
-    correctErrorTypes = true
+    Dependencies.AndroidX.Activity.Bundle.forEach(::implementation)
+    implementation(Dependencies.ThirdParty.Dagger.HiltAndroid)
+    kapt(Dependencies.ThirdParty.Dagger.HiltCompiler)
+    debugImplementation(Dependencies.ThirdParty.LeakCanary)
 }

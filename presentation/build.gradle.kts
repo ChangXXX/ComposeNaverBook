@@ -1,11 +1,8 @@
-import name.remal.gradle_plugins.dsl.extensions.flattenAny
-
 plugins {
-    id("com.android.library")
-    kotlin("android")
-    kotlin("kapt")
-    id("dagger.hilt.android.plugin")
-    id("name.remal.check-dependency-updates") version Versions.Util.CheckDependencyUpdates
+    kotlin(Plugins.KotlinAndroid)
+    kotlin(Plugins.KotlinKapt)
+    id(Plugins.HiltPlugin)
+    id(Plugins.AndroidLibrary)
 }
 
 android {
@@ -35,7 +32,11 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Application.composeCompilerVersion
+       kotlinCompilerExtensionVersion = Versions.AndroidX.Compose.Compiler
+    }
+
+    kapt {
+        correctErrorTypes = true
     }
 
     kotlinOptions {
@@ -45,23 +46,27 @@ android {
 
 dependencies {
 
-    val dependencies = listOf(
-        Dependencies.Ui,
-        Dependencies.Ktx,
-        Dependencies.Util,
-        Dependencies.Firebase,
-        Dependencies.Essential,
-        Dependencies.Jetpack,
-        Dependencies.Compose,
-        platform(Dependencies.FirebaseBom)
-    ).flattenAny()
+    val composeBom = platform(Dependencies.AndroidX.Compose.Bom)
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+    Dependencies.AndroidX.Compose.Bundle.forEach(::implementation)
+    Dependencies.AndroidX.Compose.Debug.forEach(::debugImplementation)
 
-    dependencies.forEach(::implementation)
-    Dependencies.Debug.forEach(::debugImplementation)
+    listOf(
+        Dependencies.AndroidX.Appcompat,
+        Dependencies.AndroidX.CoreKtx,
+        Dependencies.ThirdParty.Ksp,
+        Dependencies.ThirdParty.Timber,
+        Dependencies.AndroidX.Compose.NavigationCompose,
+        Dependencies.AndroidX.Compose.HiltComposeNavigation,
+    ).forEach(::implementation)
 
-    Dependencies.Compiler.forEach(::kapt)
-}
+    Dependencies.AndroidX.Activity.Bundle.forEach(::implementation)
+    Dependencies.AndroidX.Lifecycle.Bundle.forEach(::implementation)
+    Dependencies.AndroidX.Lifecycle.Test.forEach(::testImplementation)
+    Dependencies.Kotlin.Coroutines.Bundle.forEach(::implementation)
+    Dependencies.ThirdParty.Coil.Bundle.forEach(::implementation)
 
-kapt {
-    correctErrorTypes = true
+    implementation(Dependencies.ThirdParty.Dagger.HiltAndroid)
+    kapt(Dependencies.ThirdParty.Dagger.HiltCompiler)
 }

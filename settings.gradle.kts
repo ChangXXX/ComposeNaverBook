@@ -12,11 +12,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven("https://maven.google.com")
-        maven("https://devrepo.kakao.com/nexus/content/groups/public/")
     }
 }
 
 rootProject.name = "ComposeNaverMovie"
-
-include("app", "presentation", "domain", "data")
+include(":app", ":presentation", ":domain", ":data")

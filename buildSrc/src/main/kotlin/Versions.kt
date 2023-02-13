@@ -1,39 +1,35 @@
 object Versions {
-    const val Kakao = "2.10.0"
-    const val FirebaseBom = "30.1.0"
 
-    object Essential {
-        const val Kotlin = "1.7.20"
-        const val Coroutines = "1.6.2"
-        const val GoogleService = "4.3.3"
+    object Kotlin {
+        const val Kotlin = "1.8.10"
+        const val KotlinAndroid = "1.5.31"
+        const val KotlinSerializationJson = "1.4.1"
+        const val Coroutines = "1.6.4"
+        const val Kapt = "1.8.0"
     }
 
-    object Ktx {
-        const val Core = "1.8.0"
-        const val LifeCycle = "2.4.1"
-        const val ViewModel = "2.4.1"
-    }
-
-    object Ui {
-        const val Material = "1.3.1"
-        const val Material3 = "1.0.1"
-        const val AppCompat = "1.4.2"
-        const val Compose = "1.3.2"
-        const val ActivityCompose = "1.6.1"
-        const val Foundation = "1.3.1"
-        const val Navigation = "2.5.0"
+    object AndroidX {
+        const val Core = "1.9.0"
+        const val Appcompat = "1.6.1"
+        const val Activity = "1.6.1"
+        const val Room = "2.5.0"
+        const val Lifecycle = "2.5.1"
+        const val Navigation = "2.5.3"
         const val ComposeHiltNavigation = "1.0.0"
+
+        object Compose {
+            const val Compiler = "1.4.2"
+            const val ComposeBom = "2023.01.00"
+        }
     }
 
-    object Util {
-        const val Glide = "1.0.0-alpha.1"
+    object ThirdParty {
+        const val Coil = "2.2.2"
+        const val Dagger = "2.44"
         const val LeakCanary = "2.9.1"
-        const val SecretsGradlePlugin = "2.0.0"
-        const val CheckDependencyUpdates = "1.5.0"
-    }
-
-    object Jetpack {
-        const val Hilt = "2.44"
-        const val Room = "2.4.2"
+        const val SecretsGradle = "2.0.1"
+        const val AndroidGradle = "7.3.1"
+        const val Timber = "5.0.1"
+        const val Ksp = "1.8.0-1.0.8"
     }
 }

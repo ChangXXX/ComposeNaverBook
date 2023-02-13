@@ -1,7 +1,6 @@
 plugins {
-    id("java-library")
-    id("org.jetbrains.kotlin.jvm")
-    kotlin("kapt")
+    id(Plugins.JavaLibrary)
+    kotlin(Plugins.KotlinKapt)
 }
 
 java {
