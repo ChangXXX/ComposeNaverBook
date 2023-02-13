@@ -53,13 +53,13 @@ fun MovieSearchApp() {
                     onTabSelected = { newScreen ->
                         navController.navigateSingleTopTo(newScreen.route)
                     },
-                    currentScreen = currentScreen
+                    currentScreen = currentScreen,
                 )
-            }
+            },
         ) { paddingValues ->
             NaverMovieNavHost(
                 navController = navController,
-                modifier = Modifier.padding(paddingValues)
+                modifier = Modifier.padding(paddingValues),
             )
         }
     }
