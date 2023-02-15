@@ -64,6 +64,8 @@ dependencies {
     Dependencies.AndroidX.Activity.Bundle.forEach(::implementation)
     Dependencies.AndroidX.Lifecycle.Bundle.forEach(::implementation)
     Dependencies.AndroidX.Lifecycle.Test.forEach(::testImplementation)
+    Dependencies.AndroidX.DataStore.Preferences.Bundle.forEach(::implementation)
+    Dependencies.AndroidX.DataStore.Proto.Bundle.forEach(::implementation)
     Dependencies.Kotlin.Coroutines.Bundle.forEach(::implementation)
     Dependencies.ThirdParty.Coil.Bundle.forEach(::implementation)
 

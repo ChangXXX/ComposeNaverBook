@@ -17,6 +17,7 @@ object Versions {
         const val Lifecycle = "2.5.1"
         const val Navigation = "2.5.3"
         const val ComposeHiltNavigation = "1.0.0"
+        const val DataStore = "1.0.0"
 
         object Compose {
             const val Compiler = "1.4.2"

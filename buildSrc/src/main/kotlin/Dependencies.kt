@@ -43,10 +43,31 @@ object Dependencies {
             )
         }
 
+        object DataStore {
+
+            object Proto {
+                const val Core = "androidx.datastore:datastore-core:${Versions.AndroidX.DataStore}"
+                const val DataStore = "androidx.datastore:datastore:${Versions.AndroidX.DataStore}"
+
+                val Bundle = listOf(
+                    Proto.Core,
+                    Proto.DataStore
+                )
+            }
+
+            object Preferences {
+                const val Core = "androidx.datastore:datastore-preferences-core:${Versions.AndroidX.DataStore}"
+                const val DataStore = "androidx.datastore:datastore-preferences:${Versions.AndroidX.DataStore}"
+
+                val Bundle = listOf(
+                    Preferences.Core,
+                    Preferences.DataStore
+                )
+            }
+        }
+
         object Compose {
-
             const val Bom = "androidx.compose:compose-bom:${Versions.AndroidX.Compose.ComposeBom}"
-
             const val HiltComposeNavigation =
                 "androidx.hilt:hilt-navigation-compose:${Versions.AndroidX.ComposeHiltNavigation}"
             const val NavigationCompose =
