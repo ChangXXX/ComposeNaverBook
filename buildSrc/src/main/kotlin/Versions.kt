@@ -10,6 +10,7 @@ object Versions {
 
     object AndroidX {
         const val Core = "1.9.0"
+        const val Splash = "1.0.0"
         const val Appcompat = "1.6.1"
         const val Activity = "1.6.1"
         const val Room = "2.5.0"
@@ -23,6 +24,11 @@ object Versions {
         }
     }
 
+    object Google {
+        const val Ksp = "1.8.0-1.0.8"
+        const val Material = "1.8.0"
+    }
+
     object ThirdParty {
         const val Coil = "2.2.2"
         const val Dagger = "2.44"
@@ -30,6 +36,5 @@ object Versions {
         const val SecretsGradle = "2.0.1"
         const val AndroidGradle = "7.3.1"
         const val Timber = "5.0.1"
-        const val Ksp = "1.8.0-1.0.8"
     }
 }

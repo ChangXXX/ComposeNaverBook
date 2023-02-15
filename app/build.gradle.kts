@@ -57,8 +57,13 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
 
+    listOf(
+        Dependencies.Google.Mateiral,
+        Dependencies.ThirdParty.Dagger.HiltAndroid,
+    ).forEach(::implementation)
+
+    Dependencies.AndroidX.Core.Bundle.forEach(::implementation)
     Dependencies.AndroidX.Activity.Bundle.forEach(::implementation)
-    implementation(Dependencies.ThirdParty.Dagger.HiltAndroid)
     kapt(Dependencies.ThirdParty.Dagger.HiltCompiler)
     debugImplementation(Dependencies.ThirdParty.LeakCanary)
 }

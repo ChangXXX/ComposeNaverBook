@@ -22,7 +22,15 @@ object Dependencies {
 
     object AndroidX {
 
-        const val CoreKtx = "androidx.core:core-ktx:${Versions.AndroidX.Core}"
+        object Core {
+            const val CoreKtx = "androidx.core:core-ktx:${Versions.AndroidX.Core}"
+            const val Splash =  "androidx.core:core-splashscreen:${Versions.AndroidX.Splash}"
+
+            val Bundle = listOf(
+                Core.CoreKtx,
+                Core.Splash
+            )
+        }
         const val Appcompat = "androidx.appcompat:appcompat:${Versions.AndroidX.Appcompat}"
 
         object Activity {
@@ -94,9 +102,12 @@ object Dependencies {
         }
     }
 
-    object ThirdParty {
+    object Google {
+        const val Ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.Google.Ksp}"
+        const val Mateiral = "com.google.android.material:material:${Versions.Google.Material}"
+    }
 
-        const val Ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.ThirdParty.Ksp}"
+    object ThirdParty {
 
         object Coil {
             const val Core = "io.coil-kt:coil:${Versions.ThirdParty.Coil}"

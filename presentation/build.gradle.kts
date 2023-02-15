@@ -32,7 +32,7 @@ android {
     }
 
     composeOptions {
-       kotlinCompilerExtensionVersion = Versions.AndroidX.Compose.Compiler
+        kotlinCompilerExtensionVersion = Versions.AndroidX.Compose.Compiler
     }
 
     kapt {
@@ -54,13 +54,13 @@ dependencies {
 
     listOf(
         Dependencies.AndroidX.Appcompat,
-        Dependencies.AndroidX.CoreKtx,
-        Dependencies.ThirdParty.Ksp,
+        Dependencies.Google.Ksp,
         Dependencies.ThirdParty.Timber,
         Dependencies.AndroidX.Compose.NavigationCompose,
         Dependencies.AndroidX.Compose.HiltComposeNavigation,
     ).forEach(::implementation)
 
+    Dependencies.AndroidX.Core.Bundle.forEach(::implementation)
     Dependencies.AndroidX.Activity.Bundle.forEach(::implementation)
     Dependencies.AndroidX.Lifecycle.Bundle.forEach(::implementation)
     Dependencies.AndroidX.Lifecycle.Test.forEach(::testImplementation)
