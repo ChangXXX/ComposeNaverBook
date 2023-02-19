@@ -1,17 +1,24 @@
 plugins {
-    id(Plugins.JavaLibrary)
     kotlin(Plugins.KotlinKapt)
+    kotlin(Plugins.KotlinAndroid)
+    id(Plugins.HiltPlugin)
+    id(Plugins.AndroidLibrary)
 }
 
-java {
-    sourceCompatibility = Application.sourceCompat
-    targetCompatibility = Application.targetCompat
+android {
+
+    namespace = "team.study.data"
+    compileSdk = Application.compileSdk
 }
 
 dependencies {
 
     listOf(
-        Dependencies.AndroidX.DataStore.Preferences.Core,
-        Dependencies.AndroidX.DataStore.Proto.Core,
+        Dependencies.ThirdParty.Timber,
+        Dependencies.AndroidX.DataStore.Preferences.DataStore,
+        Dependencies.Kotlin.Coroutines.Core,
     ).forEach(::implementation)
+
+    implementation(Dependencies.ThirdParty.Dagger.HiltAndroid)
+    kapt(Dependencies.ThirdParty.Dagger.HiltCompiler)
 }

@@ -1,7 +1,7 @@
 plugins {
     kotlin(Plugins.KotlinAndroid)
     kotlin(Plugins.KotlinKapt)
-    id(Plugins.HiltPlugin)
+    id(Plugins.DaggerHilt)
     id(Plugins.AndroidLibrary)
 }
 
@@ -65,7 +65,6 @@ dependencies {
     Dependencies.AndroidX.Lifecycle.Bundle.forEach(::implementation)
     Dependencies.AndroidX.Lifecycle.Test.forEach(::testImplementation)
     Dependencies.AndroidX.DataStore.Preferences.Bundle.forEach(::implementation)
-    Dependencies.AndroidX.DataStore.Proto.Bundle.forEach(::implementation)
     Dependencies.Kotlin.Coroutines.Bundle.forEach(::implementation)
     Dependencies.ThirdParty.Coil.Bundle.forEach(::implementation)
 

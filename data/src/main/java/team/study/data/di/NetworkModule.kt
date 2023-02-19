@@ -1,4 +1,4 @@
-package team.study.composenavermovie.di
+package team.study.data.di
 
 import dagger.Module
 import dagger.hilt.InstallIn
