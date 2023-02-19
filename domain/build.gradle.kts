@@ -7,3 +7,8 @@ java {
     sourceCompatibility = Application.sourceCompat
     targetCompatibility = Application.targetCompat
 }
+
+dependencies {
+
+    implementation(Dependencies.Kotlin.Coroutines.Core)
+}

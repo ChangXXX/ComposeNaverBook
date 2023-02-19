@@ -1,8 +1,8 @@
-package team.study.data.repository
+package team.study.domain.repository
 
 import kotlinx.coroutines.flow.Flow
-import team.study.data.model.UserPreference
-import team.study.data.model.UserPreference.ThemeType
+import team.study.domain.model.UserPreference
+import team.study.domain.model.UserPreference.ThemeType
 
 interface UserDataRepository {
 

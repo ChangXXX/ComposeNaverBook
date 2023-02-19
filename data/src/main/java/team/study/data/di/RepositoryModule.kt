@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import team.study.data.repository.UserDataRepository
 import team.study.data.repository.UserDataRepositoryImpl
+import team.study.domain.repository.UserDataRepository
 
 @Module
 @InstallIn(SingletonComponent::class)

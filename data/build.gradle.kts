@@ -13,6 +13,8 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+
     listOf(
         Dependencies.ThirdParty.Timber,
         Dependencies.AndroidX.DataStore.Preferences.DataStore,

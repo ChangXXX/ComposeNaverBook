@@ -1,4 +1,4 @@
-package team.study.data.model
+package team.study.domain.model
 
 data class UserPreference(
     val theme: ThemeType,
