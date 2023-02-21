@@ -14,7 +14,7 @@ object Versions {
         const val Appcompat = "1.6.1"
         const val Activity = "1.6.1"
         const val Room = "2.5.0"
-        const val Lifecycle = "2.5.1"
+        const val Lifecycle = "2.6.0-alpha03"
         const val Navigation = "2.5.3"
         const val ComposeHiltNavigation = "1.0.0"
         const val DataStore = "1.0.0"
@@ -30,9 +30,13 @@ object Versions {
         const val Material = "1.8.0"
     }
 
+    object JavaX {
+        const val Inject = "1"
+    }
+
     object ThirdParty {
         const val Coil = "2.2.2"
-        const val Dagger = "2.44"
+        const val Dagger = "2.44.2"
         const val LeakCanary = "2.9.1"
         const val SecretsGradle = "2.0.1"
         const val AndroidGradle = "7.3.1"

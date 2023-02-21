@@ -10,7 +10,7 @@ object Dependencies {
 
             val Bundle = listOf(
                 Coroutines.Core,
-                Coroutines.Android
+                Coroutines.Android,
             )
             const val Test =
                 "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Kotlin.Coroutines}"
@@ -24,13 +24,14 @@ object Dependencies {
 
         object Core {
             const val CoreKtx = "androidx.core:core-ktx:${Versions.AndroidX.Core}"
-            const val Splash =  "androidx.core:core-splashscreen:${Versions.AndroidX.Splash}"
+            const val Splash = "androidx.core:core-splashscreen:${Versions.AndroidX.Splash}"
 
             val Bundle = listOf(
                 Core.CoreKtx,
-                Core.Splash
+                Core.Splash,
             )
         }
+
         const val Appcompat = "androidx.appcompat:appcompat:${Versions.AndroidX.Appcompat}"
 
         object Activity {
@@ -39,19 +40,21 @@ object Dependencies {
 
             val Bundle = listOf(
                 Activity.Ktx,
-                Activity.Compose
+                Activity.Compose,
             )
         }
 
         object DataStore {
 
             object Preferences {
-                const val Core = "androidx.datastore:datastore-preferences-core:${Versions.AndroidX.DataStore}"
-                const val DataStore = "androidx.datastore:datastore-preferences:${Versions.AndroidX.DataStore}"
+                const val Core =
+                    "androidx.datastore:datastore-preferences-core:${Versions.AndroidX.DataStore}"
+                const val DataStore =
+                    "androidx.datastore:datastore-preferences:${Versions.AndroidX.DataStore}"
 
                 val Bundle = listOf(
                     Preferences.Core,
-                    Preferences.DataStore
+                    Preferences.DataStore,
                 )
             }
         }
@@ -79,7 +82,7 @@ object Dependencies {
 
             val Debug = listOf(
                 "androidx.compose.ui:ui-tooling",
-                //"androidx.compose.ui:ui-test-manifest"
+                // "androidx.compose.ui:ui-test-manifest"
             )
         }
 
@@ -90,7 +93,7 @@ object Dependencies {
 
             val Bundle = listOf(
                 Room.Runtime,
-                Room.Ktx
+                Room.Ktx,
             )
         }
 
@@ -99,16 +102,19 @@ object Dependencies {
                 "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.AndroidX.Lifecycle}"
             const val ViewModelCompose =
                 "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.AndroidX.Lifecycle}"
+            const val RuntimeCompose =
+                "androidx.lifecycle:lifecycle-runtime-compose:${Versions.AndroidX.Lifecycle}"
             const val RuntimeTesting =
                 "androidx.lifecycle:lifecycle-runtime-testing:${Versions.AndroidX.Lifecycle}"
 
             val Bundle = listOf(
                 Lifecycle.ViewModel,
-                Lifecycle.ViewModelCompose
+                Lifecycle.ViewModelCompose,
+                Lifecycle.RuntimeCompose,
             )
 
             val Test = listOf(
-                Lifecycle.RuntimeTesting
+                Lifecycle.RuntimeTesting,
             )
         }
     }
@@ -116,6 +122,10 @@ object Dependencies {
     object Google {
         const val Ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.Google.Ksp}"
         const val Mateiral = "com.google.android.material:material:${Versions.Google.Material}"
+    }
+
+    object Javax {
+        val Inject = "javax.inject:javax.inject:${Versions.JavaX.Inject}"
     }
 
     object ThirdParty {
@@ -126,7 +136,7 @@ object Dependencies {
 
             val Bundle = listOf(
                 Coil.Core,
-                Coil.Compose
+                Coil.Compose,
             )
         }
 

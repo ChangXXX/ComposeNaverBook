@@ -1,6 +1,6 @@
 plugins {
     id(Plugins.JavaLibrary)
-    kotlin(Plugins.KotlinKapt)
+    kotlin(Plugins.KotlinJvm)
 }
 
 java {
@@ -10,5 +10,6 @@ java {
 
 dependencies {
 
+    implementation(Dependencies.Javax.Inject)
     implementation(Dependencies.Kotlin.Coroutines.Core)
 }
