@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.intPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import team.study.data.datasource.UserPreferencesDataSource.PreferencesKey.THEME_KEY
+import team.study.domain.model.UserPreference
 import team.study.domain.model.UserPreference.ThemeType
 import team.study.domain.model.UserPreference.ThemeType.Dark
 import team.study.domain.model.UserPreference.ThemeType.Light
@@ -20,7 +21,7 @@ class UserPreferencesDataSource @Inject constructor(
         val THEME_KEY = intPreferencesKey("THEME_KEY")
     }
 
-    val userPreference: Flow<team.study.domain.model.UserPreference> = userPreferences.data
+    val userPreference: Flow<UserPreference> = userPreferences.data
         .map { prefs ->
             mapUserPreference(prefs)
         }
@@ -31,8 +32,8 @@ class UserPreferencesDataSource @Inject constructor(
         }
     }
 
-    private fun mapUserPreference(prefs: Preferences): team.study.domain.model.UserPreference =
-        team.study.domain.model.UserPreference(
+    private fun mapUserPreference(prefs: Preferences): UserPreference =
+        UserPreference(
             theme = when (prefs[THEME_KEY] ?: 0) {
                 0 -> {
                     System
