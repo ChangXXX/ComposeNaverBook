@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 
 @Composable
-fun CircularProgressAnimated() {
+fun NaverMovieProgressAnimated() {
     val transition = rememberInfiniteTransition()
     val progressAnimationValue by transition.animateFloat(
         initialValue = 0.0f,
