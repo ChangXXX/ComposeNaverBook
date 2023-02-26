@@ -1,6 +1,5 @@
 package team.study.presentation.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -30,7 +29,7 @@ private val DarkColorPalette = darkColorScheme(
     surfaceVariant = DarkSurfaceVariant,
     onSurfaceVariant = DarkOnSurfaceVariant,
     outlineVariant = DarkOutline60,
-    outline = DarkOutline30
+    outline = DarkOutline30,
 )
 
 private val LightColorPalette = lightColorScheme(
@@ -57,19 +56,19 @@ private val LightColorPalette = lightColorScheme(
     surfaceVariant = LightSurfaceVariant,
     onSurfaceVariant = LightOnSurfaceVariant,
     outlineVariant = LightOutline50,
-    outline = LightOutline90
+    outline = LightOutline90,
 )
 
 @Composable
 fun MagentaTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    darkTheme: Boolean,
+    content: @Composable () -> Unit,
 ) {
     val colors = if (darkTheme) DarkColorPalette else LightColorPalette
 
     MaterialTheme(
         colorScheme = colors,
         typography = PretendardTypography,
-        content = content
+        content = content,
     )
 }

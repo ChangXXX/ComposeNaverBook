@@ -58,6 +58,7 @@ dependencies {
     listOf(
         Dependencies.AndroidX.Appcompat,
         Dependencies.Google.Ksp,
+        Dependencies.Google.SystemUiController,
         Dependencies.ThirdParty.Timber,
         Dependencies.AndroidX.Compose.NavigationCompose,
         Dependencies.AndroidX.Compose.HiltComposeNavigation,

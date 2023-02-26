@@ -21,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -96,6 +97,7 @@ private fun RowTab(
                 ),
             )
             .clearAndSetSemantics { contentDescription = text },
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(imageVector = icon, contentDescription = text, tint = tintColor)
         if (selected) {
@@ -105,7 +107,7 @@ private fun RowTab(
     }
 }
 
-private val NavigationHeight = 56.dp
+private val NavigationHeight = 72.dp
 private const val InactiveTabOpacity = 0.60f
 
 private const val TabFadeInAnimationDuration = 150

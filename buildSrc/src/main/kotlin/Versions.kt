@@ -28,6 +28,7 @@ object Versions {
     object Google {
         const val Ksp = "1.8.0-1.0.8"
         const val Material = "1.8.0"
+        const val SystemUiController = "0.28.0"
     }
 
     object JavaX {

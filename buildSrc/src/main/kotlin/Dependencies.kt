@@ -122,6 +122,7 @@ object Dependencies {
     object Google {
         const val Ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.Google.Ksp}"
         const val Mateiral = "com.google.android.material:material:${Versions.Google.Material}"
+        const val SystemUiController = "com.google.accompanist:accompanist-systemuicontroller:${Versions.Google.SystemUiController}"
     }
 
     object Javax {
