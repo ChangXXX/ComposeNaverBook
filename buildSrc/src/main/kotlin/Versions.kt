@@ -39,7 +39,6 @@ object Versions {
         const val Coil = "2.2.2"
         const val Dagger = "2.44.2"
         const val LeakCanary = "2.9.1"
-        const val SecretsGradle = "2.0.1"
         const val AndroidGradle = "7.3.1"
         const val Timber = "5.0.1"
     }

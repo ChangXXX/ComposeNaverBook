@@ -6,7 +6,6 @@ plugins {
     id(Plugins.AndroidApplication) version Versions.ThirdParty.AndroidGradle apply false
     id(Plugins.AndroidLibrary) version Versions.ThirdParty.AndroidGradle apply false
     id(Plugins.DaggerHilt) version Versions.ThirdParty.Dagger apply false
-    id(Plugins.SecretsGradlePlugin) version Versions.ThirdParty.SecretsGradle apply false
 }
 
 buildscript {

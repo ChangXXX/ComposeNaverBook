@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     kotlin(Plugins.KotlinKapt)
     kotlin(Plugins.KotlinAndroid)
@@ -21,6 +23,14 @@ android {
 
     kotlinOptions {
         jvmTarget = Application.jvmTarget
+    }
+
+    val clientId = gradleLocalProperties(rootDir).getProperty("clientId")
+    val apiKey = gradleLocalProperties(rootDir).getProperty("apiKey")
+
+    defaultConfig {
+        buildConfigField("String", "API_KEY", "\"$apiKey\"")
+        buildConfigField("String", "CLIENT_ID", "\"$clientId\"")
     }
 }
 
