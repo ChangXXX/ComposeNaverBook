@@ -41,5 +41,9 @@ object Versions {
         const val LeakCanary = "2.9.1"
         const val AndroidGradle = "7.3.1"
         const val Timber = "5.0.1"
+        const val Retrofit = "2.9.0"
+        const val KotlinSerializationConverter = "0.8.0"
+        const val OkHttp = "4.10.0"
+        const val OkHttpProfiler = "1.0.8"
     }
 }

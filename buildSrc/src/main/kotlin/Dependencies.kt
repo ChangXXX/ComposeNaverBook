@@ -122,7 +122,8 @@ object Dependencies {
     object Google {
         const val Ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.Google.Ksp}"
         const val Mateiral = "com.google.android.material:material:${Versions.Google.Material}"
-        const val SystemUiController = "com.google.accompanist:accompanist-systemuicontroller:${Versions.Google.SystemUiController}"
+        const val SystemUiController =
+            "com.google.accompanist:accompanist-systemuicontroller:${Versions.Google.SystemUiController}"
     }
 
     object Javax {
@@ -151,5 +152,28 @@ object Dependencies {
 
         const val LeakCanary =
             "com.squareup.leakcanary:leakcanary-android:${Versions.ThirdParty.LeakCanary}"
+
+        object Network {
+            const val Retrofit = "com.squareup.retrofit2:retrofit:${Versions.ThirdParty.Retrofit}"
+
+            const val KotlinSerializationConverter =
+                "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.ThirdParty.KotlinSerializationConverter}"
+
+            const val OkHttp = "com.squareup.okhttp3:okhttp:${Versions.ThirdParty.OkHttp}"
+
+            const val OkHttpLogging =
+                "com.squareup.okhttp3:logging-interceptor:${Versions.ThirdParty.OkHttp}"
+
+            const val OkHttpProfiler =
+                "com.localebro:okhttpprofiler:${Versions.ThirdParty.OkHttpProfiler}"
+
+            val Bundle = listOf(
+                Retrofit,
+                OkHttp,
+                OkHttpLogging,
+                KotlinSerializationConverter,
+                OkHttpProfiler,
+            )
+        }
     }
 }

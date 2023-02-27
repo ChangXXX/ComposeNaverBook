@@ -43,7 +43,10 @@ dependencies {
         Dependencies.ThirdParty.Timber,
         Dependencies.AndroidX.DataStore.Preferences.DataStore,
         Dependencies.Kotlin.Coroutines.Core,
+        Dependencies.Kotlin.Serialization,
     ).forEach(::implementation)
+
+    Dependencies.ThirdParty.Network.Bundle.forEach(::implementation)
 
     implementation(Dependencies.ThirdParty.Dagger.HiltAndroid)
     kapt(Dependencies.ThirdParty.Dagger.HiltCompiler)
