@@ -1,4 +1,4 @@
-package team.study.presentation.ui.navermovie
+package team.study.presentation.ui.naverbook
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -31,15 +31,15 @@ import kotlinx.coroutines.launch
 import team.study.domain.model.UserPreference
 import team.study.presentation.theme.MagentaTheme
 import team.study.presentation.ui.components.NaverMovieTabRow
-import team.study.presentation.ui.navermovie.navigation.NaverMovieDestination
-import team.study.presentation.ui.navermovie.navigation.NaverMovieNavHost
-import team.study.presentation.ui.navermovie.navigation.naverMovieScreens
-import team.study.presentation.ui.navermovie.navigation.navigateSingleTopTo
+import team.study.presentation.ui.naverbook.navigation.NaverBookDestination
+import team.study.presentation.ui.naverbook.navigation.NaverMovieNavHost
+import team.study.presentation.ui.naverbook.navigation.naverBookScreens
+import team.study.presentation.ui.naverbook.navigation.navigateSingleTopTo
 
 @AndroidEntryPoint
-class NaverMovieActivity : ComponentActivity() {
+class NaverBookActivity : ComponentActivity() {
 
-    private val viewModel: NaverMovieViewModel by viewModels()
+    private val viewModel: NaverBookViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,14 +67,14 @@ class NaverMovieActivity : ComponentActivity() {
                 onDispose {}
             }
 
-            MovieSearchApp(isDarkTheme)
+            BookSearchApp(isDarkTheme)
         }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MovieSearchApp(
+fun BookSearchApp(
     darkTheme: Boolean,
 ) {
     MagentaTheme(
@@ -84,15 +84,15 @@ fun MovieSearchApp(
         val currentBackStack by navController.currentBackStackEntryAsState()
         val currentDestination = currentBackStack?.destination
         val currentScreen =
-            naverMovieScreens.find { it.route == currentDestination?.route }
-                ?: NaverMovieDestination.SearchDestination
+            naverBookScreens.find { it.route == currentDestination?.route }
+                ?: NaverBookDestination.SearchDestination
 
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             contentColor = MaterialTheme.colorScheme.onBackground,
             topBar = {
                 NaverMovieTabRow(
-                    allScreens = naverMovieScreens,
+                    allScreens = naverBookScreens,
                     onTabSelected = { newScreen ->
                         navController.navigateSingleTopTo(newScreen.route)
                     },

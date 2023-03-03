@@ -1,4 +1,4 @@
-package team.study.presentation.ui.navermovie
+package team.study.presentation.ui.naverbook
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,7 +12,7 @@ import team.study.domain.usecase.GetThemeUseCase
 import javax.inject.Inject
 
 @HiltViewModel
-class NaverMovieViewModel @Inject constructor(
+class NaverBookViewModel @Inject constructor(
     getThemeUseCase: GetThemeUseCase,
 ) : ViewModel() {
     val mainUiState: StateFlow<MainUiState> =

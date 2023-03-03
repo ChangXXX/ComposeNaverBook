@@ -1,4 +1,4 @@
-package team.study.presentation.ui.navermovie.navigation
+package team.study.presentation.ui.naverbook.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.EventNote
@@ -7,27 +7,27 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.ui.graphics.vector.ImageVector
 import team.study.presentation.R
 
-sealed class NaverMovieDestination(
+sealed class NaverBookDestination(
     val title: Int,
     val icon: ImageVector,
     val route: String,
 ) {
     object LogDestination :
-        NaverMovieDestination(
+        NaverBookDestination(
             R.string.log,
             Icons.Filled.EventNote,
             Routes.LogRoute.route,
         )
 
     object SearchDestination :
-        NaverMovieDestination(
+        NaverBookDestination(
             R.string.search,
             Icons.Filled.Search,
             Routes.SearchRoute.route,
         )
 
     object ThemeDestination :
-        NaverMovieDestination(
+        NaverBookDestination(
             R.string.theme,
             Icons.Filled.FormatPaint,
             Routes.ThemeRoute.route,
@@ -40,8 +40,8 @@ sealed class Routes(val route: String) {
     object ThemeRoute : Routes("theme")
 }
 
-val naverMovieScreens = listOf(
-    NaverMovieDestination.LogDestination,
-    NaverMovieDestination.SearchDestination,
-    NaverMovieDestination.ThemeDestination,
+val naverBookScreens = listOf(
+    NaverBookDestination.LogDestination,
+    NaverBookDestination.SearchDestination,
+    NaverBookDestination.ThemeDestination,
 )

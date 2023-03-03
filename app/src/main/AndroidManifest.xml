@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".application.NaverMovieApplication"
+        android:name="team.study.composenaverbook.application.NaverBookApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,7 +17,7 @@
         tools:targetApi="s">
 
         <activity
-            android:name="team.study.presentation.ui.navermovie.NaverMovieActivity"
+            android:name="team.study.presentation.ui.naverbook.NaverBookActivity"
             android:exported="true">
 
             <intent-filter>

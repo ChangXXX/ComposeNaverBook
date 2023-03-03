@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "team.study.composenavermovie"
+    namespace = "team.study.composenaverbook"
     compileSdk = Application.compileSdk
     buildToolsVersion = Application.buildGradleVersion
 

@@ -31,13 +31,13 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import team.study.presentation.ui.navermovie.navigation.NaverMovieDestination
+import team.study.presentation.ui.naverbook.navigation.NaverBookDestination
 
 @Composable
 fun NaverMovieTabRow(
-    allScreens: List<NaverMovieDestination>,
-    onTabSelected: (NaverMovieDestination) -> Unit,
-    currentScreen: NaverMovieDestination,
+    allScreens: List<NaverBookDestination>,
+    onTabSelected: (NaverBookDestination) -> Unit,
+    currentScreen: NaverBookDestination,
 ) {
     Surface(
         Modifier

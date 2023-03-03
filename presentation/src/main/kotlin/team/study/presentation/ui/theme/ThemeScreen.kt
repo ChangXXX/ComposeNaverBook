@@ -25,8 +25,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import team.study.presentation.ui.components.NaverBookProgressAnimated
 import team.study.presentation.ui.components.NaverMovieCheckBox
-import team.study.presentation.ui.components.NaverMovieProgressAnimated
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
@@ -57,7 +57,7 @@ fun ThemeRadioCards(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxSize(),
             ) {
-                NaverMovieProgressAnimated()
+                NaverBookProgressAnimated()
             }
         }
         is ThemeUiState.Success -> {

@@ -1,4 +1,4 @@
-package team.study.presentation.ui.navermovie.navigation
+package team.study.presentation.ui.naverbook.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,16 +17,16 @@ fun NaverMovieNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = NaverMovieDestination.SearchDestination.route,
+        startDestination = NaverBookDestination.SearchDestination.route,
         modifier = modifier,
     ) {
-        composable(route = NaverMovieDestination.SearchDestination.route) {
+        composable(route = NaverBookDestination.SearchDestination.route) {
             SearchScreen()
         }
-        composable(route = NaverMovieDestination.LogDestination.route) {
+        composable(route = NaverBookDestination.LogDestination.route) {
             LogScreen()
         }
-        composable(route = NaverMovieDestination.ThemeDestination.route) {
+        composable(route = NaverBookDestination.ThemeDestination.route) {
             ThemeScreen()
         }
     }
