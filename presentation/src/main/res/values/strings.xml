@@ -3,4 +3,5 @@
     <string name="log">Log</string>
     <string name="search">Search</string>
     <string name="theme">Theme</string>
+    <string name="search_hint">Search Books</string>
 </resources>
