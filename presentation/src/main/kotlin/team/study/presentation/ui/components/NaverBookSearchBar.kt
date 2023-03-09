@@ -12,8 +12,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusState
-import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -26,13 +24,11 @@ fun NaverBookSearchBar(
     value: String,
     onClear: () -> Unit = {},
     onDone: () -> Unit = {},
-    onFocusChanged: (FocusState) -> Unit = {},
     onValueChanged: (String) -> Unit,
 ) {
     OutlinedTextField(
         modifier = modifier
-            .fillMaxWidth(.9f)
-            .onFocusChanged { onFocusChanged(it) },
+            .fillMaxWidth(.9f),
         value = value,
         onValueChange = { query ->
             onValueChanged(query)
