@@ -13,11 +13,14 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import team.study.data.BuildConfig
+import team.study.data.network.BookService
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
+    private const val NAVER_URL = "https://openapi.naver.com/v1/datalab/"
 
     @Provides
     @Singleton
@@ -38,7 +41,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideRetrofit(client: OkHttpClient, json: Json): Retrofit = Retrofit.Builder()
-        .baseUrl(baseUrl)
+        .baseUrl(NAVER_URL)
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .client(client)
         .build()
@@ -50,5 +53,9 @@ object NetworkModule {
         isLenient = true
     }
 
-    private const val baseUrl = ""
+    @Provides
+    @Singleton
+    fun provideSearchService(retrofit: Retrofit): BookService {
+        return retrofit.create(BookService::class.java)
+    }
 }
