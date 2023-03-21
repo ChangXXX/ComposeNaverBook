@@ -1,8 +1,8 @@
 package team.study.data.network
 
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
+import team.study.data.model.NetworkResult
 import team.study.data.model.SearchResponse
 
 interface BookService {
@@ -10,5 +10,5 @@ interface BookService {
     @GET("v1/search/book.json")
     suspend fun searchBooks(
         @Query("query") query: String,
-    ): Response<SearchResponse>
+    ): NetworkResult<SearchResponse>
 }

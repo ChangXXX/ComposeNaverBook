@@ -15,6 +15,7 @@ import retrofit2.Retrofit
 import team.study.data.BuildConfig
 import team.study.data.network.BookService
 import team.study.data.util.HeaderInterceptor
+import team.study.data.util.NetworkResultCallAdapterFactory
 import javax.inject.Singleton
 
 @Module
@@ -42,9 +43,14 @@ object NetworkModule {
     @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
-    fun provideRetrofit(client: OkHttpClient, json: Json): Retrofit = Retrofit.Builder()
+    fun provideRetrofit(
+        client: OkHttpClient,
+        json: Json,
+        networkResultCallAdapterFactory: NetworkResultCallAdapterFactory,
+    ): Retrofit = Retrofit.Builder()
         .baseUrl(NAVER_URL)
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
+        .addCallAdapterFactory(networkResultCallAdapterFactory)
         .client(client)
         .build()
 
