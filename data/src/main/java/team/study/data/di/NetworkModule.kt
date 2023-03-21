@@ -14,6 +14,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import team.study.data.BuildConfig
 import team.study.data.network.BookService
+import team.study.data.util.HeaderInterceptor
 import javax.inject.Singleton
 
 @Module
@@ -26,6 +27,7 @@ object NetworkModule {
     @Singleton
     fun provideHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
+            .addInterceptor(HeaderInterceptor())
         if (BuildConfig.DEBUG) {
             val logging = HttpLoggingInterceptor().apply {
                 setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -55,7 +57,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideSearchService(retrofit: Retrofit): BookService {
+    fun provideBookService(retrofit: Retrofit): BookService {
         return retrofit.create(BookService::class.java)
     }
 }
