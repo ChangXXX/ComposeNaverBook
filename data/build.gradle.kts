@@ -44,10 +44,10 @@ dependencies {
         Dependencies.AndroidX.DataStore.Preferences.DataStore,
         Dependencies.Kotlin.Coroutines.Core,
         Dependencies.Kotlin.Serialization,
+        Dependencies.ThirdParty.Dagger.HiltAndroid,
     ).forEach(::implementation)
 
     Dependencies.ThirdParty.Network.Bundle.forEach(::implementation)
 
-    implementation(Dependencies.ThirdParty.Dagger.HiltAndroid)
     kapt(Dependencies.ThirdParty.Dagger.HiltCompiler)
 }
