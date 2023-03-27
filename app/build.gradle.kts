@@ -1,3 +1,4 @@
+
 plugins {
     id(Plugins.AndroidApplication)
     kotlin(Plugins.KotlinAndroid)
@@ -60,6 +61,7 @@ dependencies {
     listOf(
         Dependencies.Google.Mateiral,
         Dependencies.ThirdParty.Dagger.HiltAndroid,
+        Dependencies.ThirdParty.Timber,
     ).forEach(::implementation)
 
     Dependencies.AndroidX.Core.Bundle.forEach(::implementation)
