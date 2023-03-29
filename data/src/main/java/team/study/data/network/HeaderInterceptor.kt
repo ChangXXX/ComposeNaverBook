@@ -1,4 +1,4 @@
-package team.study.data.util
+package team.study.data.network
 
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -9,8 +9,8 @@ class HeaderInterceptor : Interceptor {
         proceed(
             request()
                 .newBuilder()
-                .addHeader("X-Naver-Client-Id", BuildConfig.CLIENT_ID)
-                .addHeader("X-Naver-Client_Secret:", BuildConfig.API_KEY)
+                .addHeader(NetworkHeader.CLIENT_ID, BuildConfig.CLIENT_ID)
+                .addHeader(NetworkHeader.CLIENT_SECRET, BuildConfig.API_KEY)
                 .build(),
         )
     }
