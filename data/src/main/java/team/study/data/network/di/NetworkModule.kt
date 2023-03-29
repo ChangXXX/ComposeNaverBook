@@ -1,4 +1,4 @@
-package team.study.data.di
+package team.study.data.network.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
@@ -10,8 +10,8 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import team.study.data.network.BookService
-import team.study.data.util.NetworkResultCallAdapterFactory
+import team.study.data.network.NetworkResultCallAdapterFactory
+import team.study.data.network.service.BookService
 import javax.inject.Singleton
 
 @Module
