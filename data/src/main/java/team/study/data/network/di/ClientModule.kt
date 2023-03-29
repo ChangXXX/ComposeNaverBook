@@ -1,11 +1,11 @@
-package team.study.data.di
+package team.study.data.network.di
 
 import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import team.study.data.BuildConfig
-import team.study.data.util.HeaderInterceptor
+import team.study.data.network.HeaderInterceptor
 import javax.inject.Singleton
 
 class ClientModule {

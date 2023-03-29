@@ -1,4 +1,4 @@
-package team.study.data.di
+package team.study.data.network.di
 
 import dagger.Module
 import dagger.Provides

@@ -1,4 +1,4 @@
-package team.study.data.util
+package team.study.data.network
 
 import retrofit2.Call
 import retrofit2.CallAdapter

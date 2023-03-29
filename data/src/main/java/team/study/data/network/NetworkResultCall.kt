@@ -1,4 +1,4 @@
-package team.study.data.util
+package team.study.data.network
 
 import okhttp3.Request
 import okio.Timeout

@@ -1,4 +1,4 @@
-package team.study.data.network
+package team.study.data.network.service
 
 import retrofit2.http.GET
 import retrofit2.http.Query
