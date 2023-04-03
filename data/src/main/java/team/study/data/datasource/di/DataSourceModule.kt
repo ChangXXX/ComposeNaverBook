@@ -1,13 +1,12 @@
-package team.study.data.di
+package team.study.data.datasource.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.CoroutineDispatcher
 import team.study.data.datasource.BookRemoteDataSource
 import team.study.data.datasource.BookRemoteDataSourceImpl
-import team.study.data.network.BookService
+import team.study.data.network.service.BookService
 import javax.inject.Singleton
 
 @Module
@@ -18,7 +17,6 @@ object DataSourceModule {
     @Provides
     fun provideBookDataSource(
         bookService: BookService,
-        @Dispatcher(CustomDispatchers.IO) ioDispatcher: CoroutineDispatcher,
     ): BookRemoteDataSource =
-        BookRemoteDataSourceImpl(bookService, ioDispatcher)
+        BookRemoteDataSourceImpl(bookService)
 }
