@@ -10,7 +10,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import team.study.data.network.NetworkResultCallAdapterFactory
+import team.study.data.network.adapter.ApiResponseCallAdapterFactory
 import team.study.data.network.service.BookService
 import javax.inject.Singleton
 
@@ -26,11 +26,11 @@ object NetworkModule {
     fun provideRetrofit(
         client: OkHttpClient,
         json: Json,
-        networkResultCallAdapterFactory: NetworkResultCallAdapterFactory,
+        apiResponseCallAdapterFactory: ApiResponseCallAdapterFactory,
     ): Retrofit = Retrofit.Builder()
         .baseUrl(NAVER_URL)
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
-        .addCallAdapterFactory(networkResultCallAdapterFactory)
+        .addCallAdapterFactory(apiResponseCallAdapterFactory)
         .client(client)
         .build()
 
