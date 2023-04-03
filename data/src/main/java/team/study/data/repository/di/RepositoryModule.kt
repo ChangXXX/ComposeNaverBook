@@ -1,4 +1,4 @@
-package team.study.data.di
+package team.study.data.repository.di
 
 import dagger.Binds
 import dagger.Module
