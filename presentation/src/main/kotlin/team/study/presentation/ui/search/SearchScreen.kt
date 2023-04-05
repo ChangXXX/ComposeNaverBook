@@ -2,26 +2,32 @@ package team.study.presentation.ui.search
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.hilt.navigation.compose.hiltViewModel
 import team.study.presentation.extension.clearFocus
+import team.study.presentation.ui.components.NaverBookCard
 import team.study.presentation.ui.components.NaverBookSearchBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchScreen() {
+fun SearchScreen(
+    searchViewModel: SearchViewModel = hiltViewModel(),
+) {
     val focusRequester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
+    val query by searchViewModel.query.collectAsState("")
+    val books by searchViewModel.books.collectAsState(emptyList())
 
     Column(
         modifier = Modifier
@@ -29,29 +35,31 @@ fun SearchScreen() {
             .clearFocus(focusManager),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        var searchValue by remember { mutableStateOf("") }
-
         NaverBookSearchBar(
             modifier = Modifier
                 .focusRequester(focusRequester),
-            value = searchValue,
+            value = query,
             onClear = {
-                searchValue = ""
+                searchViewModel.onChangedQuery("")
                 focusManager.clearFocus()
             },
             onDone = {
+                searchViewModel::search
                 focusManager.clearFocus()
             },
-            onValueChanged = { query ->
-                searchValue = query
+            onValueChanged = {
+                searchViewModel.onChangedQuery(it)
             },
         )
 
-        TextField(
-            modifier = Modifier,
-            value = "HIHIHI",
-            onValueChange = {},
-            enabled = false,
-        )
+        LazyColumn {
+            itemsIndexed(books) { _, book ->
+                NaverBookCard(
+                    book = book,
+                    onClick = { /*TODO*/ },
+                    onFavorite = { /*TODO*/ },
+                )
+            }
+        }
     }
 }
