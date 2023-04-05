@@ -26,11 +26,10 @@ object NetworkModule {
     fun provideRetrofit(
         client: OkHttpClient,
         json: Json,
-        apiResponseCallAdapterFactory: ApiResponseCallAdapterFactory,
     ): Retrofit = Retrofit.Builder()
         .baseUrl(NAVER_URL)
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
-        .addCallAdapterFactory(apiResponseCallAdapterFactory)
+        .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
         .client(client)
         .build()
 
