@@ -1,5 +1,13 @@
-# ComposeNaverMovie
-네이버 영화 검색 API를 활용한 영화 검색 어플
+# ComposeNaverBook
+네이버 책 검색 API를 활용한 책 검색 어플
+
+## 구현할 것들
+- 책 검색
+- 캐싱
+- 페이징
+- Favorite
+- 책 클릭 시 Animation
+- 모듈 나누기
 
 ## Git Strategy
 - Commit Message Prefix
