@@ -7,7 +7,7 @@ data class Book(
     val author: String = "",
     val discount: Int = 0,
     val publisher: String = "",
-    val isbn: Int = 0,
+    val isbn: String = "",
     val description: String = "",
     val pubdate: String = "",
 )

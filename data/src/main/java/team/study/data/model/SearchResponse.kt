@@ -28,7 +28,7 @@ data class SearchResponse(
         @SerialName("publisher")
         val publisher: String = "",
         @SerialName("isbn")
-        val isbn: Int = 0,
+        val isbn: String = "",
         @SerialName("description")
         val description: String = "",
         @SerialName("pubdate")
