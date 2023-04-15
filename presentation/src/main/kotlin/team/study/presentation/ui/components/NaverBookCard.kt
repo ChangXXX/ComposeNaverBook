@@ -1,8 +1,9 @@
 package team.study.presentation.ui.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -18,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -32,19 +34,18 @@ fun NaverBookCard(
 ) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .height(80.dp)
-            .padding(12.dp)
+            .fillMaxWidth(.9f)
+            .height(100.dp)
+            .padding(top = 12.dp, bottom = 12.dp)
             .clickable { onClick() },
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 10.dp,
-        ),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
+            containerColor = MaterialTheme.colorScheme.secondaryContainer,
         ),
     ) {
         Row(
-            modifier = Modifier.padding(12.dp),
+            modifier = Modifier.fillMaxWidth()
+                .fillMaxHeight()
+                .padding(12.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             AsyncImage(
@@ -55,30 +56,47 @@ fun NaverBookCard(
                     .clip(RoundedCornerShape(10.dp)),
                 contentScale = ContentScale.Crop,
             )
-            Spacer(modifier = Modifier.weight(1f))
-            Text(
-                text = "제목 : ${book.title}",
-                fontStyle = MaterialTheme.typography.bodySmall.fontStyle,
-                fontSize = MaterialTheme.typography.bodySmall.fontSize,
-            )
-            Spacer(modifier = Modifier.weight(1f))
-            Text(
-                text = "저자 : ${book.author}",
-                fontStyle = MaterialTheme.typography.bodySmall.fontStyle,
-                fontSize = MaterialTheme.typography.bodySmall.fontSize,
-            )
+            Column(
+                modifier = Modifier.padding(start = 12.dp)
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .weight(1f),
+            ) {
+                Text(
+                    text = "제목 : ${book.title}",
+                    fontStyle = MaterialTheme.typography.bodySmall.fontStyle,
+                    fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                    softWrap = false,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    text = "저자 : ${book.author}",
+                    fontStyle = MaterialTheme.typography.bodySmall.fontStyle,
+                    fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                    softWrap = false,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    text = "출판사 : ${book.publisher}",
+                    fontStyle = MaterialTheme.typography.bodySmall.fontStyle,
+                    fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                    softWrap = false,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
         }
     }
 }
 
 @Preview
 @Composable
-fun PreviewNaverBookCard() {
+fun NaverBookCardPreview() {
     NaverBookCard(
         book = Book(
-            title = "컴포즈",
+            title = "컴포즈 책 검색 앱",
             author = "ChangXXX",
-            image = "https://user-images.githubusercontent.com/53431177/229817785-a64af5a9-4ad0-41e9-9733-81aea3e53ad8.png",
+            image = "https://shopping-phinf.pstatic.net/main_3527659/35276599620.20221027194759.jpg",
+            publisher = "github.com/changXXX",
         ),
         onClick = { /*TODO*/ },
         onFavorite = { /*TODO*/ },
