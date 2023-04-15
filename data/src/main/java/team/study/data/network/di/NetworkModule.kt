@@ -18,7 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val NAVER_URL = "https://openapi.naver.com/v1/datalab/"
+    private const val NAVER_URL = "https://openapi.naver.com/"
 
     private val json = Json {
         prettyPrint = true
