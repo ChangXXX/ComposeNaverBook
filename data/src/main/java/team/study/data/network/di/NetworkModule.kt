@@ -20,25 +20,27 @@ object NetworkModule {
 
     private const val NAVER_URL = "https://openapi.naver.com/v1/datalab/"
 
-    @OptIn(ExperimentalSerializationApi::class)
+    private val json = Json {
+        prettyPrint = true
+        isLenient = true // Json 큰 따옴표 느슨한 체크
+        ignoreUnknownKeys = true // Field 값이 없는 경우 무시
+        coerceInputValues = true // "null" 이 들어간 경우 Default Argument 대체
+        encodeDefaults = true // 요청 시 Field DefaultValue 무시 되는 경우 방지
+    }
+
     @Provides
     @Singleton
     fun provideRetrofit(
         client: OkHttpClient,
-        json: Json,
     ): Retrofit = Retrofit.Builder()
-        .baseUrl(NAVER_URL)
-        .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
-        .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
         .client(client)
+        .baseUrl(NAVER_URL)
+        .addConverterFactory(
+            @OptIn(ExperimentalSerializationApi::class)
+            json.asConverterFactory("application/json".toMediaType()),
+        )
+        .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
         .build()
-
-    @Provides
-    @Singleton
-    fun provideJson(): Json = Json {
-        ignoreUnknownKeys = true
-        isLenient = true
-    }
 
     @Provides
     @Singleton

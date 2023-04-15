@@ -3,6 +3,7 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 plugins {
     kotlin(Plugins.KotlinKapt)
     kotlin(Plugins.KotlinAndroid)
+    kotlin(Plugins.KotlinSerialization)
     id(Plugins.HiltPlugin)
     id(Plugins.AndroidLibrary)
 }
