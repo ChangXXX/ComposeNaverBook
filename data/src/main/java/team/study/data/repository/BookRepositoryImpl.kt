@@ -8,6 +8,7 @@ import team.study.data.datasource.BookRemoteDataSource
 import team.study.data.model.ApiResponse
 import team.study.data.network.di.CustomDispatchers
 import team.study.data.network.di.Dispatcher
+import team.study.data.util.mapper.mapper
 import team.study.data.util.mapper.toDomain
 import team.study.domain.model.Book
 import team.study.domain.repository.BookRepository
@@ -21,21 +22,16 @@ class BookRepositoryImpl @Inject constructor(
 
     override suspend fun search(
         query: String,
-        onError: (String?) -> Unit,
     ): Flow<List<Book>> = flow {
-        bookRemoteDataSource.searchBooks(query).let { result ->
-            when (result) {
-                is ApiResponse.Success -> {
-                    emit(result.data.items.map { it.toDomain() })
-                }
-                is ApiResponse.Failure.Error -> {
-                    Timber.d(result.toString())
-                    onError(null)
-                }
-                is ApiResponse.Failure.Exception -> {
-                    Timber.d(result.toString())
-                    onError(null)
-                }
+        when (val response = bookRemoteDataSource.searchBooks(query)) {
+            is ApiResponse.Success -> {
+                emit(response.data.items.map { it.toDomain() })
+            }
+            is ApiResponse.Failure.Error -> {
+                Timber.tag("Search ApiResponse Failure.Error ::").e(response.mapper().message)
+            }
+            is ApiResponse.Failure.Exception -> {
+                Timber.tag("Search ApiResponse Failure.Exception ::").e(response.toString())
             }
         }
     }.flowOn(ioDispatcher)
