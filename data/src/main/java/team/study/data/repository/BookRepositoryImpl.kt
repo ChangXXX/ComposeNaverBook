@@ -22,6 +22,7 @@ class BookRepositoryImpl @Inject constructor(
 
     override suspend fun search(
         query: String,
+        onException: (String?) -> Unit,
     ): Flow<List<Book>> = flow {
         when (val response = bookRemoteDataSource.searchBooks(query)) {
             is ApiResponse.Success -> {
@@ -29,9 +30,11 @@ class BookRepositoryImpl @Inject constructor(
             }
             is ApiResponse.Failure.Error -> {
                 Timber.tag("Search ApiResponse Failure.Error ::").e(response.mapper().message)
+                onException(response.mapper().toString())
             }
             is ApiResponse.Failure.Exception -> {
                 Timber.tag("Search ApiResponse Failure.Exception ::").e(response.toString())
+                onException(response.toString())
             }
         }
     }.flowOn(ioDispatcher)

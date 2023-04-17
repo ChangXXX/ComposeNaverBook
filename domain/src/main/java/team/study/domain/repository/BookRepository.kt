@@ -8,5 +8,5 @@ interface BookRepository {
     /**
      * search book
      */
-    suspend fun search(query: String): Flow<List<Book>>
+    suspend fun search(query: String, onException: (String?) -> Unit): Flow<List<Book>>
 }

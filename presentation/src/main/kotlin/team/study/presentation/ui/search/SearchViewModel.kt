@@ -35,6 +35,12 @@ class SearchViewModel @Inject constructor(
             Timber.tag("INIT SEARCH ::").d(query.toString())
             bookSearchUseCase.invoke(
                 query = query.toString(),
+                onException = { msg ->
+                    val exceptionMsg = msg ?: "알 수 없는 에러"
+                    uiState.update {
+                        it.copy(isError = true, toastMessage = exceptionMsg)
+                    }
+                },
             )
                 .collectLatest { books ->
                     uiState.update { it.copy(books = books) }

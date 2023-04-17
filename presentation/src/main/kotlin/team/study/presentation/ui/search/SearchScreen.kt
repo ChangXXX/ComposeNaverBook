@@ -33,12 +33,13 @@ fun SearchScreen(
     val query by searchViewModel.query.collectAsState("")
     val books by searchViewModel.books.collectAsState(emptyList())
     val isError by searchViewModel.isError.collectAsState(false)
+    val toastMessage by searchViewModel.toastMessage.collectAsState("")
 
     LaunchedEffect(isError) {
         if (isError) {
             Toast.makeText(
                 context,
-                searchViewModel.toastMessage.toString(),
+                toastMessage,
                 Toast.LENGTH_SHORT,
             ).show()
         }

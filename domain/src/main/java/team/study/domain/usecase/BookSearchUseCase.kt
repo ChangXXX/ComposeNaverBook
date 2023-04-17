@@ -8,7 +8,7 @@ import javax.inject.Inject
 class BookSearchUseCase @Inject constructor(
     private val bookRepository: BookRepository,
 ) {
-    suspend operator fun invoke(query: String): Flow<List<Book>> {
-        return bookRepository.search(query)
+    suspend operator fun invoke(query: String, onException: (String?) -> Unit): Flow<List<Book>> {
+        return bookRepository.search(query, onException)
     }
 }
