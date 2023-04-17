@@ -1,7 +1,9 @@
 package team.study.presentation.ui.search
 
 import android.widget.Toast
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -17,9 +19,11 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
 import team.study.presentation.extension.clearFocus
 import team.study.presentation.ui.components.NaverBookCard
+import team.study.presentation.ui.components.NaverBookProgressAnimated
 import team.study.presentation.ui.components.NaverBookSearchBar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,6 +38,7 @@ fun SearchScreen(
     val books by searchViewModel.books.collectAsState(emptyList())
     val isError by searchViewModel.isError.collectAsState(false)
     val toastMessage by searchViewModel.toastMessage.collectAsState("")
+    val isLoading by searchViewModel.isLoading.collectAsState(false)
 
     LaunchedEffect(isError, toastMessage) {
         if (isError && toastMessage.isNotEmpty()) {
@@ -43,7 +48,17 @@ fun SearchScreen(
                 Toast.LENGTH_SHORT,
             ).show()
         }
-        searchViewModel.updateErrorFalse()
+    }
+
+    if (isLoading) {
+        Column(
+            modifier = Modifier.fillMaxSize()
+                .zIndex(1f),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
+            NaverBookProgressAnimated()
+        }
     }
 
     Column(

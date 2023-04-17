@@ -6,7 +6,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -44,18 +43,24 @@ class SearchViewModel @Inject constructor(
                         it.copy(isError = true, toastMessage = exceptionMsg)
                     }
                 },
-            )
-                .onStart { uiState.update { it.copy(isLoading = true) } }
-                .onCompletion { uiState.update { it.copy(isLoading = false) } }
-                .collectLatest { books ->
-                    uiState.update { it.copy(books = books) }
+            ).onStart {
+                uiState.update {
+                    it.copy(
+                        isLoading = true,
+                        isError = false,
+                        toastMessage = "",
+                    )
                 }
-        }
-    }
-
-    fun updateErrorFalse() {
-        uiState.update {
-            it.copy(isError = false, toastMessage = "")
+            }.collectLatest { books ->
+                uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        isError = false,
+                        toastMessage = "",
+                        books = books,
+                    )
+                }
+            }
         }
     }
 }
