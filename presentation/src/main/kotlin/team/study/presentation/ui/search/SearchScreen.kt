@@ -35,14 +35,15 @@ fun SearchScreen(
     val isError by searchViewModel.isError.collectAsState(false)
     val toastMessage by searchViewModel.toastMessage.collectAsState("")
 
-    LaunchedEffect(isError) {
-        if (isError) {
+    LaunchedEffect(isError, toastMessage) {
+        if (isError && toastMessage.isNotEmpty()) {
             Toast.makeText(
                 context,
                 toastMessage,
                 Toast.LENGTH_SHORT,
             ).show()
         }
+        searchViewModel.updateErrorFalse()
     }
 
     Column(

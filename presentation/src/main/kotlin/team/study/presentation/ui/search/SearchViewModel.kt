@@ -47,6 +47,12 @@ class SearchViewModel @Inject constructor(
                 }
         }
     }
+
+    fun updateErrorFalse() {
+        uiState.update {
+            it.copy(isError = false, toastMessage = "")
+        }
+    }
 }
 
 data class BooksUiState(
