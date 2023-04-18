@@ -10,4 +10,5 @@ data class Book(
     val isbn: String = "",
     val description: String = "",
     val pubdate: String = "",
+    val isFavorite: Boolean = false,
 )
